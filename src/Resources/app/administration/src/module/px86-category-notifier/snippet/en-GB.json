@@ -1,0 +1,9 @@
+{
+    "px86-category-notifier": {
+        "config": {
+            "selectedCategoriesLabel": "Select Categories",
+            "selectedCategoriesPlaceholder": "Select categories...",
+            "selectedCategoriesHelpText": "Select the categories where the form should be displayed"
+        }
+    }
+}

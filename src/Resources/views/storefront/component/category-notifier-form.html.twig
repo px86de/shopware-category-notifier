@@ -1,0 +1,107 @@
+{# Nur auf Kategorieseiten anzeigen #}
+{% if page.category %}
+    {% set config = config('Px86CategoryNotifier.config') %}
+    {% set displayMode = config.displayMode|default('all') %}
+    {% set selectedCategories = config.selectedCategories|default([]) %}
+    
+    {# Konvertiere zu Array falls String #}
+    {% if selectedCategories is not iterable %}
+        {% set selectedCategories = selectedCategories ? selectedCategories|split(',') : [] %}
+    {% endif %}
+    
+    {% set shouldDisplay = false %}
+
+    {# Anzeigelogik basierend auf Konfiguration #}
+    {% if displayMode == 'all' %}
+        {% set shouldDisplay = true %}
+    {% elseif displayMode == 'selected' %}
+        {% for categoryId in selectedCategories %}
+            {% if categoryId == page.category.id %}
+                {% set shouldDisplay = true %}
+            {% endif %}
+        {% endfor %}
+    {% elseif displayMode == 'excluded' %}
+        {% set shouldDisplay = true %}
+        {% for categoryId in selectedCategories %}
+            {% if categoryId == page.category.id %}
+                {% set shouldDisplay = false %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    {% if shouldDisplay %}
+    <div class="cms-section">
+        <div class="boxed category-notifier-subscription">
+            <div class="card p-3">
+                <div class="card-body">
+                    <h5 class="card-title">{{ "px86-category-notifier.subscription.title"|trans|sw_sanitize }}</h5>
+                    <p class="card-text">{{ "px86-category-notifier.subscription.description"|trans|sw_sanitize }}</p>
+                    
+                    <form
+                        id="category-notifier-form"
+                        class="category-notifier-form"
+                        method="post"
+                        action="{{ path('px86_category_notifier_subscribe') }}"
+                        data-error-text="{{ 'px86-category-notifier.subscription.errorGeneral'|trans|sw_sanitize }}"
+                    >
+                        <input type="hidden" name="categoryId" value="{{ page.category.id }}">
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="cn-email" class="form-label">
+                                    {{ "px86-category-notifier.subscription.email"|trans|sw_sanitize }}*
+                                </label>
+                                <input 
+                                    type="email" 
+                                    class="form-control" 
+                                    id="cn-email" 
+                                    name="email" 
+                                    required
+                                    placeholder="{{ "px86-category-notifier.subscription.emailPlaceholder"|trans|sw_sanitize }}"
+                                >
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <label for="cn-firstName" class="form-label">
+                                    {{ "px86-category-notifier.subscription.firstName"|trans|sw_sanitize }}
+                                </label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="cn-firstName" 
+                                    name="firstName"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="cn-lastName" class="form-label">
+                                    {{ "px86-category-notifier.subscription.lastName"|trans|sw_sanitize }}
+                                </label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="cn-lastName" 
+                                    name="lastName"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="alert" id="category-notifier-message" style="display: none;"></div>
+
+                        <button 
+                            type="submit" 
+                            class="btn btn-primary"
+                            id="category-notifier-submit"
+                            data-loading-text="{{ 'global.default.loading'|trans|sw_sanitize }}"
+                        >
+                            {{ "px86-category-notifier.subscription.submit"|trans|sw_sanitize }}
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% endif %}

@@ -1,0 +1,44 @@
+{
+    "px86-category-notifier": {
+        "general": {
+            "mainMenuItemGeneral": "Kategorie Benachrichtigungen",
+            "descriptionTextModule": "Verwaltung von Kategorie-Benachrichtigungen"
+        },
+        "list": {
+            "textHeadline": "Kategorie Benachrichtigungen",
+            "columnEmail": "E-Mail",
+            "columnCategory": "Kategorie",
+            "columnFirstName": "Vorname",
+            "columnLastName": "Nachname",
+            "columnConfirmed": "Bestätigt",
+            "columnActive": "Aktiv",
+            "columnCreatedAt": "Erstellt am"
+        },
+        "subscription": {
+            "title": "Benachrichtigung bei neuen Produkten",
+            "description": "Möchten Sie per E-Mail benachrichtigt werden, wenn neue Produkte in dieser Kategorie verfügbar sind?",
+            "email": "E-Mail-Adresse",
+            "emailPlaceholder": "ihre@email.de",
+            "firstName": "Vorname",
+            "lastName": "Nachname",
+            "submit": "Benachrichtigung aktivieren",
+            "success": "Vielen Dank! Sie erhalten in Kürze eine Bestätigungs-E-Mail.",
+            "error": {
+                "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+                "invalidCategory": "Ungültige Kategorie.",
+                "alreadySubscribed": "Diese E-Mail-Adresse ist bereits für Benachrichtigungen registriert."
+            },
+            "errorGeneral": "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
+        },
+        "confirmation": {
+            "success": "Ihre E-Mail-Adresse wurde erfolgreich bestätigt!",
+            "error": "Der Bestätigungslink ist ungültig oder abgelaufen."
+        },
+        "unsubscribe": {
+            "success": "Sie wurden erfolgreich von den Benachrichtigungen abgemeldet.",
+            "error": {
+                "notFound": "Abonnement nicht gefunden."
+            }
+        }
+    }
+}

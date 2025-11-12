@@ -1,0 +1,26 @@
+{% sw_extends '@Storefront/storefront/page/content/index.html.twig' %}
+
+{# Formular VOR den Produkten #}
+{% block page_content %}
+    {% set config = config('Px86CategoryNotifier.config') %}
+    {% set formPosition = config.formPosition|default('after') %}
+    
+    {% if formPosition == 'before' %}
+        {% sw_include '@Px86CategoryNotifier/storefront/component/category-notifier-form.html.twig' %}
+    {% endif %}
+    
+    {{ parent() }}
+{% endblock %}
+
+{# Formular NACH den Produkten #}
+{% block page_content_blocks %}
+    {{ parent() }}
+
+    {% set config = config('Px86CategoryNotifier.config') %}
+    {% set formPosition = config.formPosition|default('after') %}
+    
+    {% if formPosition == 'after' %}
+        {% sw_include '@Px86CategoryNotifier/storefront/component/category-notifier-form.html.twig' %}
+    {% endif %}
+{% endblock %}
+

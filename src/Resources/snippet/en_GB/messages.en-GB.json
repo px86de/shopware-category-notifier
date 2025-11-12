@@ -1,0 +1,44 @@
+{
+    "px86-category-notifier": {
+        "general": {
+            "mainMenuItemGeneral": "Category Notifications",
+            "descriptionTextModule": "Management of category notifications"
+        },
+        "list": {
+            "textHeadline": "Category Notifications",
+            "columnEmail": "Email",
+            "columnCategory": "Category",
+            "columnFirstName": "First Name",
+            "columnLastName": "Last Name",
+            "columnConfirmed": "Confirmed",
+            "columnActive": "Active",
+            "columnCreatedAt": "Created At"
+        },
+        "subscription": {
+            "title": "Get notified about new products",
+            "description": "Would you like to be notified by email when new products are available in this category?",
+            "email": "Email Address",
+            "emailPlaceholder": "your@email.com",
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "submit": "Activate Notification",
+            "success": "Thank you! You will receive a confirmation email shortly.",
+            "error": {
+                "invalidEmail": "Please enter a valid email address.",
+                "invalidCategory": "Invalid category.",
+                "alreadySubscribed": "This email address is already registered for notifications."
+            },
+            "errorGeneral": "Something went wrong. Please try again."
+        },
+        "confirmation": {
+            "success": "Your email address has been successfully confirmed!",
+            "error": "The confirmation link is invalid or has expired."
+        },
+        "unsubscribe": {
+            "success": "You have been successfully unsubscribed from notifications.",
+            "error": {
+                "notFound": "Subscription not found."
+            }
+        }
+    }
+}

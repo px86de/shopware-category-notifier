@@ -1,0 +1,9 @@
+{
+    "px86-category-notifier": {
+        "config": {
+            "selectedCategoriesLabel": "Kategorien auswählen",
+            "selectedCategoriesPlaceholder": "Kategorien auswählen...",
+            "selectedCategoriesHelpText": "Wählen Sie die Kategorien aus, für die das Formular angezeigt werden soll"
+        }
+    }
+}

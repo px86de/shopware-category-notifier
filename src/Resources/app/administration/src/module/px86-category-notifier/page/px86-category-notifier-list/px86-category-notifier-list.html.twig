@@ -1,0 +1,53 @@
+{% block px86_category_notifier_list %}
+    <sw-page class="px86-category-notifier-list">
+        {% block px86_category_notifier_list_smart_bar_header %}
+            <template #smart-bar-header>
+                <h2>
+                    {{ $tc('px86-category-notifier.list.textHeadline') }}
+                </h2>
+            </template>
+        {% endblock %}
+
+        {% block px86_category_notifier_list_content %}
+            <template #content>
+                <div class="px86-category-notifier-list__content">
+                    <sw-entity-listing
+                        v-if="subscriptions"
+                        :items="subscriptions"
+                        :repository="repository"
+                        :columns="columns"
+                        :showSelection="false"
+                        :isLoading="isLoading"
+                        detailRoute="swag.category.notifier.detail"
+                    >
+                        <template #column-email="{ item }">
+                            {{ item.email }}
+                        </template>
+                        
+                        <template #column-category.name="{ item }">
+                            {{ item.category ? item.category.name : '-' }}
+                        </template>
+                        
+                        <template #column-firstName="{ item }">
+                            {{ item.firstName || '-' }}
+                        </template>
+                        
+                        <template #column-lastName="{ item }">
+                            {{ item.lastName || '-' }}
+                        </template>
+                        
+                        <template #column-confirmed="{ item }">
+                            <sw-icon v-if="item.confirmed" name="regular-checkmark-xs" small color="#37d046"></sw-icon>
+                            <sw-icon v-else name="regular-times-s" small color="#de294c"></sw-icon>
+                        </template>
+                        
+                        <template #column-active="{ item }">
+                            <sw-icon v-if="item.active" name="regular-checkmark-xs" small color="#37d046"></sw-icon>
+                            <sw-icon v-else name="regular-times-s" small color="#de294c"></sw-icon>
+                        </template>
+                    </sw-entity-listing>
+                </div>
+            </template>
+        {% endblock %}
+    </sw-page>
+{% endblock %}

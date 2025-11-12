@@ -1,0 +1,20 @@
+<h2>{% if subscription.firstName %}Hallo {{ subscription.firstName }},{% else %}Hallo,{% endif %}</h2>
+
+<p>vielen Dank für Ihr Interesse! Bitte bestätigen Sie Ihre E-Mail-Adresse, um Benachrichtigungen über neue Produkte zu erhalten.</p>
+
+<p style="margin: 30px 0;">
+    <a href="{{ confirmUrl }}" style="display: inline-block; padding: 12px 24px; background-color: #008490; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
+        E-Mail-Adresse bestätigen
+    </a>
+</p>
+
+<p>Oder kopieren Sie diesen Link in Ihren Browser:<br>
+    <a href="{{ confirmUrl }}">{{ confirmUrl }}</a>
+</p>
+
+<hr style="margin: 30px 0; border: none; border-top: 1px solid #ddd;">
+
+<p style="font-size: 12px; color: #666;">
+    Wenn Sie sich nicht für Benachrichtigungen angemeldet haben, können Sie diese E-Mail ignorieren.
+</p>
+

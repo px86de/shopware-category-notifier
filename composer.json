@@ -1,0 +1,39 @@
+{
+    "name": "px86/category-notifier",
+    "description": "Ermöglicht Besuchern, sich für Benachrichtigungen zu neuen Produkten in Kategorien anzumelden",
+    "type": "shopware-platform-plugin",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Patrick Peters",
+            "email": "info@px86.de"
+        }
+    ],
+    "require": {
+        "shopware/core": "~6.6.0 || ~6.7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Px86\\CategoryNotifier\\": "src/"
+        }
+    },
+    "extra": {
+        "shopware-plugin-class": "Px86\\CategoryNotifier\\Px86CategoryNotifier",
+        "label": {
+            "de-DE": "Kategorie Benachrichtigungen",
+            "en-GB": "Category Notifications"
+        },
+        "description": {
+            "de-DE": "Ermöglicht Besuchern, sich für E-Mail-Benachrichtigungen bei neuen Produkten in Kategorien anzumelden",
+            "en-GB": "Allows visitors to subscribe to email notifications for new products in categories"
+        },
+        "manufacturerLink": {
+            "de-DE": "https://deine-website.de",
+            "en-GB": "https://your-website.com"
+        },
+        "supportLink": {
+            "de-DE": "https://deine-website.de/support",
+            "en-GB": "https://your-website.com/support"
+        }
+    }
+}

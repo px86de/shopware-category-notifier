@@ -1,0 +1,36 @@
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build artifacts
+/src/Resources/public/
+/src/Resources/app/administration/dist/
+/src/Resources/app/storefront/dist/
+
+# Logs
+var/log/*
+!var/log/.gitkeep
+
+# Cache
+var/cache/*
+!var/cache/.gitkeep
+
+# Tests
+/tests/coverage/
+.phpunit.result.cache
+
+# Composer
+/vendor/
+composer.lock

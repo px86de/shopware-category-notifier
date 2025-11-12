@@ -1,0 +1,12 @@
+{
+  "px86-category-notifier": {
+    "confirmation": {
+      "subject": "Bitte bestätigen Sie Ihre E-Mail-Adresse",
+      "description": "Bestätigungs-E-Mail für Kategorie-Benachrichtigungen"
+    },
+    "new-product": {
+      "subject": "Neues Produkt in {{ category.name }}",
+      "description": "Benachrichtigung über ein neues Produkt in einer abonnierten Kategorie"
+    }
+  }
+}

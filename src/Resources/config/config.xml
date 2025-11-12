@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
+    <card>
+        <title>Grundeinstellungen</title>
+        <title lang="en-GB">Basic Settings</title>
+            
+            <input-field type="single-select">
+                <name>displayMode</name>
+                <label>Anzeigemodus</label>
+                <label lang="en-GB">Display Mode</label>
+                <options>
+                    <option>
+                        <id>all</id>
+                        <name>In allen Kategorien anzeigen</name>
+                        <name lang="en-GB">Show in all categories</name>
+                    </option>
+                    <option>
+                        <id>selected</id>
+                        <name>Nur in ausgewählten Kategorien</name>
+                        <name lang="en-GB">Only in selected categories</name>
+                    </option>
+                    <option>
+                        <id>excluded</id>
+                        <name>Alle außer ausgewählte Kategorien</name>
+                        <name lang="en-GB">All except selected categories</name>
+                    </option>
+                </options>
+                <defaultValue>all</defaultValue>
+            </input-field>
+
+            <input-field type="text">
+                <name>selectedCategories</name>
+                <label>Kategorien auswählen</label>
+                <label lang="en-GB">Select Categories</label>
+                <helpText>Wählen Sie die Kategorien aus</helpText>
+                <helpText lang="en-GB">Select the categories</helpText>
+                <componentName>sw-entity-multi-id-select</componentName>
+                <customFieldType>entity</customFieldType>
+                <customFieldPosition>1</customFieldPosition>
+                <entity>category</entity>
+            </input-field>
+        </card>
+
+    <card>
+        <title>Formular-Darstellung</title>
+        <title lang="en-GB">Form Display</title>
+
+        <input-field type="single-select">
+            <name>formPosition</name>
+            <label>Formular-Position</label>
+            <label lang="en-GB">Form Position</label>
+            <options>
+                <option>
+                    <id>before</id>
+                    <name>Über den Produkten</name>
+                    <name lang="en-GB">Above products</name>
+                </option>
+                <option>
+                    <id>after</id>
+                    <name>Unter den Produkten</name>
+                    <name lang="en-GB">Below products</name>
+                </option>
+            </options>
+            <defaultValue>after</defaultValue>
+            <helpText>Texte anpassen unter: Einstellungen → Shop → Textbausteine → Filter "px86-category-notifier"</helpText>
+            <helpText lang="en-GB">Customize texts: Settings → Shop → Snippets → Filter "px86-category-notifier"</helpText>
+        </input-field>
+    </card>
+</config>

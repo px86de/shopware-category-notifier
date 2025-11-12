@@ -1,0 +1,14 @@
+{
+    "px86-category-notifier": {
+        "list": {
+            "textHeadline": "Category Notifications",
+            "columnEmail": "Email",
+            "columnCategory": "Category",
+            "columnFirstName": "First Name",
+            "columnLastName": "Last Name",
+            "columnConfirmed": "Confirmed",
+            "columnActive": "Active",
+            "columnCreatedAt": "Created At"
+        }
+    }
+}
