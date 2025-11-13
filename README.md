@@ -1,6 +1,10 @@
 # Shopware Category Notifier Plugin
 
-Ein professionelles Shopware 6.7 Plugin, das es Besuchern ermöglicht, sich für E-Mail-Benachrichtigungen bei neuen Produkten in bestimmten Kategorien anzumelden.
+Ein Shopware 6.7 Plugin, das es Besuchern ermöglicht, sich für E-Mail-Benachrichtigungen bei neuen Produkten in bestimmten Kategorien anzumelden.
+
+## Thanks for your Support <3 
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoffee.com/busaku)
+
 
 ## Features
 
@@ -16,19 +20,19 @@ Ein professionelles Shopware 6.7 Plugin, das es Besuchern ermöglicht, sich für
 
 ## Installation
 
-1. Plugin in `custom/plugins/Px86CategoryNotifier` ablegen
-2. Plugin installieren:
+1. Plugin installieren:
    ```bash
+   composer require px86/category-notifier
    bin/console plugin:refresh
    bin/console plugin:install --activate Px86CategoryNotifier
    ```
-3. Datenbank-Migration ausführen (geschieht automatisch)
-4. Storefront Assets bauen:
+2. Datenbank-Migration ausführen (geschieht automatisch)
+3. Storefront Assets bauen:
    ```bash
    bin/console assets:install
    bin/build-storefront.sh
    ```
-5. Administration Assets bauen:
+4. Administration Assets bauen:
    ```bash
    bin/build-administration.sh
    ```
