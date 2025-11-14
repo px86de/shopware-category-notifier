@@ -2,7 +2,7 @@
 
 namespace Px86\CategoryNotifier\Service;
 
-use Shopware\Core\Content\Mail\Service\MailService;
+use Shopware\Core\Content\Mail\Service\AbstractMailService;
 use Shopware\Core\Content\Product\ProductEntity;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
@@ -17,7 +17,7 @@ class NotificationService
     public function __construct(
         private readonly EntityRepository $categoryRepository,
         private readonly RouterInterface $router,
-        private readonly MailService $mailService,
+        private readonly AbstractMailService $mailService,
         private readonly EntityRepository $mailTemplateRepository,
         private readonly EntityRepository $salesChannelRepository
     ) {
