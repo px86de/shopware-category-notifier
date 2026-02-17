@@ -4,9 +4,11 @@
     {% set displayMode = config.displayMode|default('all') %}
     {% set selectedCategories = config.selectedCategories|default([]) %}
     
-    {# Konvertiere zu Array falls String #}
-    {% if selectedCategories is not iterable %}
-        {% set selectedCategories = selectedCategories ? selectedCategories|split(',') : [] %}
+    {# Konvertiere zu Array falls String oder null #}
+    {% if selectedCategories is null %}
+        {% set selectedCategories = [] %}
+    {% elseif selectedCategories is not iterable %}
+        {% set selectedCategories = selectedCategories|split(',') %}
     {% endif %}
     
     {% set shouldDisplay = false %}
@@ -15,18 +17,14 @@
     {% if displayMode == 'all' %}
         {% set shouldDisplay = true %}
     {% elseif displayMode == 'selected' %}
-        {% for categoryId in selectedCategories %}
-            {% if categoryId == page.category.id %}
-                {% set shouldDisplay = true %}
-            {% endif %}
-        {% endfor %}
+        {% if page.category.id in selectedCategories %}
+            {% set shouldDisplay = true %}
+        {% endif %}
     {% elseif displayMode == 'excluded' %}
         {% set shouldDisplay = true %}
-        {% for categoryId in selectedCategories %}
-            {% if categoryId == page.category.id %}
-                {% set shouldDisplay = false %}
-            {% endif %}
-        {% endfor %}
+        {% if page.category.id in selectedCategories %}
+            {% set shouldDisplay = false %}
+        {% endif %}
     {% endif %}
 
     {% if shouldDisplay %}
@@ -41,48 +39,65 @@
                         id="category-notifier-form"
                         class="category-notifier-form"
                         method="post"
-                        action="{{ path('px86_category_notifier_subscribe') }}"
+                        action="{{ seoUrl('px86_category_notifier_subscribe') }}"
                         data-error-text="{{ 'px86-category-notifier.subscription.errorGeneral'|trans|sw_sanitize }}"
                     >
                         <input type="hidden" name="categoryId" value="{{ page.category.id }}">
-                        
+
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="cn-email" class="form-label">
                                     {{ "px86-category-notifier.subscription.email"|trans|sw_sanitize }}*
                                 </label>
-                                <input 
-                                    type="email" 
-                                    class="form-control" 
-                                    id="cn-email" 
-                                    name="email" 
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    id="cn-email"
+                                    name="email"
                                     required
                                     placeholder="{{ "px86-category-notifier.subscription.emailPlaceholder"|trans|sw_sanitize }}"
                                 >
                             </div>
-                            
+
                             <div class="col-md-6 mb-3">
-                                <label for="cn-firstName" class="form-label">
-                                    {{ "px86-category-notifier.subscription.firstName"|trans|sw_sanitize }}
+                                <label for="cn-salutation" class="form-label">
+                                    {{ "px86-category-notifier.subscription.salutation"|trans|sw_sanitize }}
                                 </label>
-                                <input 
-                                    type="text" 
-                                    class="form-control" 
-                                    id="cn-firstName" 
-                                    name="firstName"
+                                <select
+                                    class="form-select form-control"
+                                    id="cn-salutation"
+                                    name="salutationId"
                                 >
+                                    {% for salutation in page.extensions.salutations %}
+                                        <option value="{{ salutation.id }}" {% if salutation.salutationKey == 'not_specified' %}selected{% endif %}>
+                                            {{ salutation.displayName }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
+                                <label for="cn-firstName" class="form-label">
+                                    {{ "px86-category-notifier.subscription.firstName"|trans|sw_sanitize }}
+                                </label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="cn-firstName"
+                                    name="firstName"
+                                >
+                            </div>
+
+                            <div class="col-md-6 mb-3">
                                 <label for="cn-lastName" class="form-label">
                                     {{ "px86-category-notifier.subscription.lastName"|trans|sw_sanitize }}
                                 </label>
-                                <input 
-                                    type="text" 
-                                    class="form-control" 
-                                    id="cn-lastName" 
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="cn-lastName"
                                     name="lastName"
                                 >
                             </div>

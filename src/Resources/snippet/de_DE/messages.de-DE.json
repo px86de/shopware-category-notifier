@@ -19,6 +19,7 @@
             "description": "Möchten Sie per E-Mail benachrichtigt werden, wenn neue Produkte in dieser Kategorie verfügbar sind?",
             "email": "E-Mail-Adresse",
             "emailPlaceholder": "ihre@email.de",
+            "salutation": "Anrede",
             "firstName": "Vorname",
             "lastName": "Nachname",
             "submit": "Benachrichtigung aktivieren",

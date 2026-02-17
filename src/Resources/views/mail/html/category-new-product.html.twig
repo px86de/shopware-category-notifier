@@ -1,11 +1,11 @@
-<h2>{% if subscription.firstName %}Hallo {{ subscription.firstName }},{% else %}Hallo,{% endif %}</h2>
+<h2>{% if firstName %}Hallo {{ firstName }},{% else %}Hallo,{% endif %}</h2>
 
-<p>ein neues Produkt wurde in der Kategorie <strong>{{ category.name }}</strong> eingestellt:</p>
+<p>ein neues Produkt wurde in der Kategorie <strong>{{ category.translated.name ?? category.name }}</strong> eingestellt:</p>
 
 <div style="background-color: #f8f9fa; padding: 20px; border-radius: 5px; margin: 20px 0;">
-    <h3 style="margin-top: 0;">{{ product.name }}</h3>
-    {% if product.description %}
-        <p>{{ product.description|raw }}</p>
+    <h3 style="margin-top: 0;">{{ product.translated.name ?? product.name }}</h3>
+    {% if product.translated.description ?? product.description %}
+        <p>{{ (product.translated.description ?? product.description)|raw }}</p>
     {% endif %}
 </div>
 
@@ -18,7 +18,7 @@
 <hr style="margin: 30px 0; border: none; border-top: 1px solid #ddd;">
 
 <p style="font-size: 12px; color: #666;">
-    Sie erhalten diese E-Mail, weil Sie Benachrichtigungen für die Kategorie "{{ category.name }}" abonniert haben.<br>
+    Sie erhalten diese E-Mail, weil Sie Benachrichtigungen für die Kategorie "{{ category.translated.name ?? category.name }}" abonniert haben.<br>
     Möchten Sie keine weiteren Benachrichtigungen erhalten? <a href="{{ unsubscribeUrl }}">Hier abmelden</a>
 </p>
 

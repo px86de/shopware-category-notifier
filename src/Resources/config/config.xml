@@ -29,17 +29,14 @@
                 <defaultValue>all</defaultValue>
             </input-field>
 
-            <input-field type="text">
+            <component name="sw-entity-multi-id-select">
                 <name>selectedCategories</name>
                 <label>Kategorien auswählen</label>
                 <label lang="en-GB">Select Categories</label>
                 <helpText>Wählen Sie die Kategorien aus</helpText>
                 <helpText lang="en-GB">Select the categories</helpText>
-                <componentName>sw-entity-multi-id-select</componentName>
-                <customFieldType>entity</customFieldType>
-                <customFieldPosition>1</customFieldPosition>
                 <entity>category</entity>
-            </input-field>
+            </component>
         </card>
 
     <card>

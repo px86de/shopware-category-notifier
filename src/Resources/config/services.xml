@@ -14,9 +14,11 @@
             <argument type="service" id="px86_category_notifier_subscription.repository"/>
             <argument type="service" id="validator"/>
             <argument type="service" id="Px86\CategoryNotifier\Service\NotificationService"/>
+            <argument type="service" id="logger"/>
             <call method="setContainer">
                 <argument type="service" id="service_container"/>
             </call>
+            <tag name="controller.service_arguments"/>
         </service>
 
         <!-- Services -->
@@ -26,6 +28,10 @@
             <argument type="service" id="Shopware\Core\Content\Mail\Service\MailService"/>
             <argument type="service" id="mail_template.repository"/>
             <argument type="service" id="sales_channel.repository"/>
+            <argument type="service" id="logger"/>
+            <argument type="service" id="salutation.repository"/>
+            <argument type="service" id="sales_channel_domain.repository"/>
+            <argument type="service" id="product.repository"/>
         </service>
 
         <!-- Subscriber -->
@@ -38,6 +44,12 @@
             <argument type="service" id="product.repository"/>
             <argument type="service" id="px86_category_notifier_subscription.repository"/>
             <argument type="service" id="Px86\CategoryNotifier\Service\NotificationService"/>
+            <argument type="service" id="logger"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+
+        <service id="Px86\CategoryNotifier\Subscriber\StorefrontSubscriber">
+            <argument type="service" id="salutation.repository"/>
             <tag name="kernel.event_subscriber"/>
         </service>
 

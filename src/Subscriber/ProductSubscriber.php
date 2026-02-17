@@ -11,13 +11,15 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Px86\CategoryNotifier\Service\NotificationService;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Psr\Log\LoggerInterface;
 
 class ProductSubscriber implements EventSubscriberInterface
 {
     public function __construct(
         private readonly EntityRepository $productRepository,
         private readonly EntityRepository $categorySubscriptionRepository,
-        private readonly NotificationService $notificationService
+        private readonly NotificationService $notificationService,
+        private readonly LoggerInterface $logger
     ) {
     }
 
@@ -106,6 +108,7 @@ class ProductSubscriber implements EventSubscriberInterface
 
     private function notifySubscribers(string $categoryId, $product, Context $context): void
     {
+        $this->logger->info('Category Notifier: Checking subscriptions for category', ['categoryId' => $categoryId, 'productId' => $product->getId()]);
         
         // Alle aktiven und bestätigten Abonnements für diese Kategorie laden
         $criteria = new Criteria();
@@ -115,6 +118,8 @@ class ProductSubscriber implements EventSubscriberInterface
 
         $subscriptions = $this->categorySubscriptionRepository->search($criteria, $context);
 
+        $this->logger->info('Category Notifier: Found subscriptions', ['count' => $subscriptions->count()]);
+
         if ($subscriptions->count() === 0) {
             return;
         }
@@ -122,8 +127,15 @@ class ProductSubscriber implements EventSubscriberInterface
         // Benachrichtigungen versenden
         foreach ($subscriptions->getElements() as $subscription) {
             try {
+                $this->logger->info('Category Notifier: Sending notification to', ['email' => $subscription->getEmail()]);
                 $this->notificationService->sendNewProductNotification($subscription, $product, $context);
             } catch (\Throwable $e) {
+                $this->logger->error('Failed to send product notification', [
+                    'productId' => $product->getId(),
+                    'categoryId' => $categoryId,
+                    'subscriptionEmail' => $subscription->getEmail(),
+                    'exception' => $e->getMessage()
+                ]);
             }
         }
     }

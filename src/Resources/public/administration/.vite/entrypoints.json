@@ -1,11 +1,11 @@
 {
-  "base": "/bundles/swagcategorynotifier/administration/",
+  "base": "/bundles/px86categorynotifier/administration/",
   "entryPoints": {
     "px86-category-notifier": {
       "css": [],
       "dynamic": [],
       "js": [
-        "/bundles/swagcategorynotifier/administration/assets/px86-category-notifier-BgxPZCA8.js"
+        "/bundles/px86categorynotifier/administration/assets/px86-category-notifier-DjytqnAq.js"
       ],
       "legacy": false,
       "preload": []

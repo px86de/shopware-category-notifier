@@ -2,8 +2,6 @@
 
 namespace Px86\CategoryNotifier\Core\Content\Snippet;
 
-use Doctrine\DBAL\Connection;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\System\Snippet\Files\SnippetFileInterface;
 
 class SnippetFile_de_DE implements SnippetFileInterface
@@ -25,7 +23,7 @@ class SnippetFile_de_DE implements SnippetFileInterface
 
     public function getAuthor(): string
     {
-        return 'Swag';
+        return 'Px86CategoryNotifier';
     }
 
     public function isBase(): bool

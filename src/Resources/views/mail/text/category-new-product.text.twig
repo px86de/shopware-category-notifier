@@ -1,15 +1,14 @@
-{% if subscription.firstName %}Hallo {{ subscription.firstName }},{% else %}Hallo,{% endif %}
+{% if firstName %}Hallo {{ firstName }},{% else %}Hallo,{% endif %}
 
-ein neues Produkt wurde in der Kategorie "{{ category.name }}" eingestellt:
+ein neues Produkt wurde in der Kategorie "{{ category.translated.name ?? category.name }}" eingestellt:
 
-{{ product.name }}
-{% if product.description %}
-{{ product.description }}
+{{ product.translated.name ?? product.name }}
+{% if product.translated.description ?? product.description %}
+{{ product.translated.description ?? product.description }}
 {% endif %}
 
 Produkt ansehen: {{ productUrl }}
 
 ---
-Sie erhalten diese E-Mail, weil Sie Benachrichtigungen für die Kategorie "{{ category.name }}" abonniert haben.
+Sie erhalten diese E-Mail, weil Sie Benachrichtigungen für die Kategorie "{{ category.translated.name ?? category.name }}" abonniert haben.
 Möchten Sie keine weiteren Benachrichtigungen erhalten? {{ unsubscribeUrl }}
-

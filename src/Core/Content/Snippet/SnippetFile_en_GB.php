@@ -23,7 +23,7 @@ class SnippetFile_en_GB implements SnippetFileInterface
 
     public function getAuthor(): string
     {
-        return 'Swag';
+        return 'Px86CategoryNotifier';
     }
 
     public function isBase(): bool
