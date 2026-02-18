@@ -1,5 +1,14 @@
 {
     "px86-category-notifier": {
+        "general": {
+            "mainMenuItemGeneral": "Category Notifications",
+            "descriptionTextModule": "Manage category subscriptions"
+        },
+        "list": {
+          "textDeleteConfirm": "Do you really want to delete this subscription?",
+          "textDeleteSuccess": "Subscription was deleted successfully.",
+          "textDeleteError": "Error while deleting subscription."
+        },
         "config": {
             "selectedCategoriesLabel": "Select Categories",
             "selectedCategoriesPlaceholder": "Select categories...",

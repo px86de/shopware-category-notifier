@@ -1,5 +1,9 @@
 {
     "px86-category-notifier": {
+        "general": {
+            "mainMenuItemGeneral": "Kategorie Benachrichtigungen",
+            "descriptionTextModule": "Verwaltung von Kategorie-Benachrichtigungen"
+        },
         "list": {
             "textHeadline": "Kategorie-Benachrichtigungen",
             "columnEmail": "E-Mail",

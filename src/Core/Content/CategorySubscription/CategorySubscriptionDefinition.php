@@ -12,6 +12,8 @@ use Shopware\Core\Framework\DataAbstractionLayer\Field\IdField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\ManyToOneAssociationField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\StringField;
 use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
+use Shopware\Core\System\Language\LanguageDefinition;
+use Shopware\Core\System\SalesChannel\SalesChannelDefinition;
 use Shopware\Core\System\Salutation\SalutationDefinition;
 
 class CategorySubscriptionDefinition extends EntityDefinition
@@ -39,13 +41,19 @@ class CategorySubscriptionDefinition extends EntityDefinition
             (new IdField('id', 'id'))->addFlags(new Required(), new PrimaryKey()),
             (new StringField('email', 'email'))->addFlags(new Required()),
             (new FkField('category_id', 'categoryId', CategoryDefinition::class))->addFlags(new Required()),
+            (new FkField('language_id', 'languageId', LanguageDefinition::class))->addFlags(new Required()),
+            (new FkField('sales_channel_id', 'salesChannelId', SalesChannelDefinition::class))->addFlags(new Required()),
             new FkField('salutation_id', 'salutationId', SalutationDefinition::class),
-            new StringField('first_name', 'firstName'),
-            new StringField('last_name', 'lastName'),
+
+            (new StringField('first_name', 'firstName')),
+            (new StringField('last_name', 'lastName')),
             (new BoolField('confirmed', 'confirmed'))->addFlags(new Required()),
-            new StringField('confirm_token', 'confirmToken'),
+            (new StringField('confirm_token', 'confirmToken')),
             (new BoolField('active', 'active'))->addFlags(new Required()),
-            new ManyToOneAssociationField('category', 'category_id', CategoryDefinition::class, 'id', false),
+            (new ManyToOneAssociationField('category', 'category_id', CategoryDefinition::class, 'id', false)),
+            (new ManyToOneAssociationField('language', 'language_id', LanguageDefinition::class, 'id', false)),
+            (new ManyToOneAssociationField('salesChannel', 'sales_channel_id', SalesChannelDefinition::class, 'id', false)),
+            (new ManyToOneAssociationField('salutation', 'salutation_id', SalutationDefinition::class, 'id', false)),
         ]);
     }
 }

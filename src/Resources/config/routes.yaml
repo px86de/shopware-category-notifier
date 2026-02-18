@@ -1,21 +1,3 @@
-px86_category_notifier_subscribe:
-    path: /category-notifier/subscribe
-    methods: [POST]
-    defaults:
-        _controller: Px86\CategoryNotifier\Storefront\Controller\CategorySubscriptionController::subscribe
-        _routeScope: ['storefront']
-        XmlHttpRequest: true
-        csrf_protected: false
-
-px86_category_notifier_confirm:
-    path: /category-notifier/confirm/{token}
-    defaults:
-        _controller: Px86\CategoryNotifier\Storefront\Controller\CategorySubscriptionController::confirm
-        _routeScope: ['storefront']
-
-px86_category_notifier_unsubscribe:
-    path: /category-notifier/unsubscribe/{email}/{categoryId}
-    methods: [GET]
-    defaults:
-        _controller: Px86\CategoryNotifier\Storefront\Controller\CategorySubscriptionController::unsubscribe
-        _routeScope: ['storefront']
+px86_category_notifier_storefront:
+    resource: ../../Storefront/Controller/
+    type: attribute

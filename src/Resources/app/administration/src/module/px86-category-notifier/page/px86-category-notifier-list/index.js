@@ -31,7 +31,6 @@ Component.register('px86-category-notifier-list', {
                 {
                     property: 'email',
                     label: this.$tc('px86-category-notifier.list.columnEmail'),
-                    routerLink: 'swag.category.notifier.detail',
                     allowResize: true,
                     primary: true
                 },

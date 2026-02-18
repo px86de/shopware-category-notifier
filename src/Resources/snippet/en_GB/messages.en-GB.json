@@ -19,6 +19,7 @@
             "description": "Would you like to be notified by email when new products are available in this category?",
             "email": "Email Address",
             "emailPlaceholder": "your@email.com",
+            "salutation": "Salutation",
             "firstName": "First Name",
             "lastName": "Last Name",
             "submit": "Activate Notification",

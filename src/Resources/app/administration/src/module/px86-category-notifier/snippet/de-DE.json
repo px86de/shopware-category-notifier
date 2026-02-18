@@ -1,5 +1,14 @@
 {
     "px86-category-notifier": {
+        "general": {
+            "mainMenuItemGeneral": "Kategorie-Benachrichtigungen",
+            "descriptionTextModule": "Verwalten Sie Kategorie-Abonnements"
+        },
+        "list": {
+          "textDeleteConfirm": "Möchten Sie dieses Abonnement wirklich löschen?",
+          "textDeleteSuccess": "Abonnement wurde erfolgreich gelöscht.",
+          "textDeleteError": "Fehler beim Löschen des Abonnements."
+        },
         "config": {
             "selectedCategoriesLabel": "Kategorien auswählen",
             "selectedCategoriesPlaceholder": "Kategorien auswählen...",
