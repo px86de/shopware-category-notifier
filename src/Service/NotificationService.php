@@ -4,7 +4,7 @@ namespace Px86\CategoryNotifier\Service;
 
 use Psr\Log\LoggerInterface;
 use Px86\CategoryNotifier\Core\Content\CategorySubscription\CategorySubscriptionEntity;
-use Shopware\Core\Content\Mail\Service\MailService;
+use Shopware\Core\Content\Mail\Service\AbstractMailService;
 use Shopware\Core\Content\Product\ProductEntity;
 use Shopware\Core\Defaults;
 use Shopware\Core\Framework\Context;
@@ -20,7 +20,7 @@ class NotificationService
     public function __construct(
         private readonly EntityRepository $categoryRepository,
         private readonly RouterInterface $router,
-        private readonly MailService $mailService,
+        private readonly AbstractMailService $mailService,
         private readonly EntityRepository $mailTemplateRepository,
         private readonly EntityRepository $salesChannelRepository,
         private readonly LoggerInterface $logger,

@@ -30,7 +30,7 @@ class CategorySubscriptionController extends StorefrontController
     ) {
     }
 
-    #[Route(path: '/category-notifier/subscribe', name: 'px86_category_notifier_subscribe', defaults: ['XmlHttpRequest' => true, 'csrf_protected' => false, '_routeScope' => ['storefront']], methods: ['POST'])]
+    #[Route(path: '/category-notifier/subscribe', name: 'px86_category_notifier_subscribe', defaults: ['XmlHttpRequest' => true, 'csrf_protected' => false, '_routeScope' => ['storefront'], '_captcha' => true], methods: ['POST'])]
     public function subscribe(Request $request, RequestDataBag $data, SalesChannelContext $context): JsonResponse
     {
         $email = $data->get('email');

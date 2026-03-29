@@ -103,6 +103,8 @@
                             </div>
                         </div>
 
+                        {% sw_include '@Storefront/storefront/component/captcha/base.html.twig' with { 'captchas': config('core.basicInformation.activeCaptchas') } %}
+
                         <div class="alert" id="category-notifier-message" style="display: none;"></div>
 
                         <button 
